@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="main.js"></script>
+  </head>
+
+  <body class="p-4">
+    <p>
+      latitude: <span id="lat"></span>°<br />
+      longitude: <span id="lon"></span>°<br />
+      altitude: <span id="alt"></span>°<br />
+      velocity: <span id="vel"></span>°
+    </p>
+
+    <button id="btn1" class="btn btn-primary">Primary button</button>
+    <button id="btn2" class="btn btn-secondary">Secondary button</button>
+
+    <p id="demo">Click me.</p>
+
+    <script>
+      fetch('https://api.wheretheiss.at/v1/satellites/25544')
+        .then((response) => {
+          return response.text();
+        })
+        .then((html) => {
+          document.body.innerHTML = html;
+        });
+    </script>
+  </body>
+</html>
